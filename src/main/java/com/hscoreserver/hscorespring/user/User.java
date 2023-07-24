@@ -1,33 +1,48 @@
 package com.hscoreserver.hscorespring.user;
 
+import com.hscoreserver.hscorespring.common.BaseTimeEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.util.Random;
 import java.util.UUID;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends BaseTimeEntity implements Serializable {
+
+  private static final int TOKEN_LENGTH = 6;
+
   @Id
   @GeneratedValue
+  @Column(name = "user_id", nullable = false, columnDefinition = "BINARY(16)")
   private UUID userId;
+
   private String name;
+
   private String token;
 
-  @CreatedDate
-  private LocalDateTime createdAt;
+  public User(String name) {
+    this.token = generateBase62();
+    this.name = name + "#" + token;
+  }
 
-  // TODO(해시코드 생성 코드 구현 및 내려주는 값 변경 @hoo)
-  public User(String name, LocalDateTime createdAt) {
-    this.name = name;
-    this.createdAt = createdAt;
+  private String generateBase62() {
+    String charArr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    StringBuilder res = new StringBuilder();
+    for (int i = 0; i < TOKEN_LENGTH; i++) {
+      Random rand = new Random();
+      int index = rand.nextInt(62);
+      res.append(charArr.charAt(index));
+    }
+    return res.toString();
   }
 }

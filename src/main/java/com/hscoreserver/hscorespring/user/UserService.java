@@ -1,7 +1,6 @@
 package com.hscoreserver.hscorespring.user;
 
 import jakarta.transaction.Transactional;
-import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +14,7 @@ public class UserService {
 
   @Transactional
   public User createUser(String name) {
-    User user = new User(name, LocalDateTime.now());
+    User user = new User(name);
     return userRepository.save(user);
   }
 }
