@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class RedirectionController {
   private final RedirectionService redirectionService;
 
-  // TODO(@hoo): response 클래스 만들기
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Redirection createRedirection(@RequestBody RedirectionCreateRequest request) {
-    return redirectionService.create(request);
+  public RedirectionResponse createRedirection(@RequestBody RedirectionCreateRequest request) {
+    Redirection redirection = redirectionService.create(request);
+    return new RedirectionResponse(redirection);
   }
 
   @GetMapping("/{token}")

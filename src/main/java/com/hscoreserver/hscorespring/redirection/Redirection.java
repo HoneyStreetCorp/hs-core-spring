@@ -21,8 +21,11 @@ public class Redirection extends BaseTimeEntity {
 
   private String originalUrl;
 
-  public Redirection(String originalUrl) {
+  private String shortUrl;
+
+  public Redirection(String originalUrl, String baseUrl) {
     this.originalUrl = originalUrl;
     this.token = Base62Util.generateBase62();
+    this.shortUrl = baseUrl + "/" + token;
   }
 }
