@@ -1,4 +1,4 @@
-package com.hscoreserver.hscorespring.common;
+package com.hscoreserver.hscorespring.error;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

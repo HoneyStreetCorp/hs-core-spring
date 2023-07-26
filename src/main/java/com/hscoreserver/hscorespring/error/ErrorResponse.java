@@ -1,4 +1,4 @@
-package com.hscoreserver.hscorespring.common;
+package com.hscoreserver.hscorespring.error;
 
 import java.util.List;
 import lombok.AllArgsConstructor;

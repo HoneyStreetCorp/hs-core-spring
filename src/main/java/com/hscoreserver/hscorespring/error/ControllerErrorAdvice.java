@@ -1,4 +1,4 @@
-package com.hscoreserver.hscorespring.common;
+package com.hscoreserver.hscorespring.error;
 
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
