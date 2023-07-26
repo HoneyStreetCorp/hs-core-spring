@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://zeabur-gcp-asia-east1-1.clusters.zeabur.com:31523/honey_street
+    username: root
+    password: rZ0g3574JFl9
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        default_batch_fetch_size: 100
+
+
+server:
+  port: 8080
+
+hscore:
+  base-url: http://localhost:8080
