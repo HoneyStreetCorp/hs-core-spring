@@ -21,7 +21,7 @@ public class User extends BaseTimeEntity {
   @Id
   @GeneratedValue
   @Column(name = "user_id", nullable = false, columnDefinition = "BINARY(16)")
-  private UUID userId;
+  private UUID id;
 
   private String name;
 
