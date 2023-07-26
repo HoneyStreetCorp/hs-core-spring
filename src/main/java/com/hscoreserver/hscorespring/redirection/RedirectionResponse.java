@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class RedirectionResponse {
+
   private String originalUrl;
   private String shortUrl;
 

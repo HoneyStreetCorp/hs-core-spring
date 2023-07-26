@@ -22,15 +22,27 @@ repositories {
 }
 
 dependencies {
+	// spring starter
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
-//	runtimeOnly("com.h2database:h2")
-	runtimeOnly("com.mysql:mysql-connector-j")
-	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// lombok
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
+	// spring devtools
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+	// h2
+	runtimeOnly("com.h2database:h2")
+
+	// mysql
+	runtimeOnly("com.mysql:mysql-connector-j")
+
+	// json
+	implementation("org.json:json:20230618")
 }
 
 tasks.withType<Test> {
