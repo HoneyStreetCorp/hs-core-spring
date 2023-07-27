@@ -1,7 +1,8 @@
 package com.hscoreserver.hscorespring.redirection;
 
 import com.hscoreserver.hscorespring.common.HsConfig;
-import com.hscoreserver.hscorespring.error.NotFoundException;
+import com.hscoreserver.hscorespring.error.ErrorCode;
+import com.hscoreserver.hscorespring.error.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,8 @@ public class RedirectionService {
 
   public Redirection redirect(String token) {
     return redirectionRepository.findById(token)
-        .orElseThrow(() -> new NotFoundException("Invalid token"));
+        .orElseThrow(() -> new NotFoundException(ErrorCode.REDIRECTION_NOT_FOUND,
+            String.format("token: %s", token))
+        );
   }
 }
