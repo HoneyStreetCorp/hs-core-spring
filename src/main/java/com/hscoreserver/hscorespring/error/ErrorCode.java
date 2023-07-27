@@ -4,7 +4,11 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class ErrorCode {
+public enum ErrorCode {
+
+  USER_NOT_FOUND(HttpStatus.NOT_FOUND, "U001","User not found"),
+
+  REDIRECTION_NOT_FOUND(HttpStatus.NOT_FOUND, "R001","Redirection not found");
 
   private final HttpStatus status;
   private final String code;
