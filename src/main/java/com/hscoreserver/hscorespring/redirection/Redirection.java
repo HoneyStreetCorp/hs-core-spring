@@ -1,15 +1,14 @@
 package com.hscoreserver.hscorespring.redirection;
 
 import com.hscoreserver.hscorespring.common.BaseTimeEntity;
-import com.hscoreserver.hscorespring.util.Base62Util;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
 @Getter
 @Entity
 @Table(name = "redirections")
@@ -23,9 +22,9 @@ public class Redirection extends BaseTimeEntity {
 
   private String shortUrl;
 
-  public Redirection(String originalUrl, String baseUrl) {
+  public Redirection(String originalUrl, String baseUrl, String token) {
     this.originalUrl = originalUrl;
-    this.token = Base62Util.generateBase62();
+    this.token = token;
     this.shortUrl = baseUrl + "/" + token;
   }
 }

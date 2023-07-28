@@ -2,8 +2,8 @@ package com.hscoreserver.hscorespring.user;
 
 import com.hscoreserver.hscorespring.error.ErrorCode;
 import com.hscoreserver.hscorespring.error.exception.NotFoundException;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -29,8 +29,8 @@ public class UserService {
   }
 
   public User connectUser(UserConnectRequest request) {
-    User male = getUser(request.maleToken());
-    User female = getUser(request.femaleToken());
+    User male = getUser(request.getMaleToken());
+    User female = getUser(request.getFemaleToken());
 
     male.connect(female);
     return male;

@@ -1,4 +1,12 @@
 package com.hscoreserver.hscorespring.user;
 
-public record UserConnectRequest(String maleToken, String femaleToken) {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public class UserConnectRequest {
+
+  private String maleToken;
+  private String femaleToken;
 }

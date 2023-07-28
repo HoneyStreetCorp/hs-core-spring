@@ -1,15 +1,16 @@
 package com.hscoreserver.hscorespring.common;
 
-
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.test.context.TestConfiguration;
 
-@Getter
-@Configuration
+@TestConfiguration
 public class HsConfig {
 
   @Value("${hscore.base-url}")
   private String baseUrl;
 
+  public String getBaseUrl() {
+    return baseUrl;
+  }
 }
+
