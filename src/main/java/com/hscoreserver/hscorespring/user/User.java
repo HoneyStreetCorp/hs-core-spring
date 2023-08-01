@@ -25,11 +25,12 @@ public class User extends BaseTimeEntity {
 
   @Id
   @GeneratedValue
+  @Setter(value = AccessLevel.PROTECTED)
   @Column(name = "user_id", nullable = false, columnDefinition = "BINARY(16)")
   private UUID id;
 
-  @Column(name = "name", nullable = false)
-  private String name;
+  @Column(name = "username", nullable = false)
+  private String username;
 
   @Column(name = "token", nullable = false, unique = true)
   private String token;
@@ -40,7 +41,7 @@ public class User extends BaseTimeEntity {
 
   public User(String name) {
     this.token = Base62Util.generateBase62();
-    this.name = name + "#" + token;
+    this.username = name + "#" + token;
   }
 
   protected void connect(User female) {

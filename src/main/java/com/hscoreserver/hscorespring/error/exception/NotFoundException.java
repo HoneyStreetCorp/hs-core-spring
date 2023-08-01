@@ -6,10 +6,7 @@ import lombok.Getter;
 @Getter
 public class NotFoundException extends SystemException {
 
-  private final String message;
-
   public NotFoundException(ErrorCode errorCode, String message) {
-    super(errorCode);
-    this.message = message;
+    super(errorCode.getMessage() + message, errorCode.getStatus());
   }
 }

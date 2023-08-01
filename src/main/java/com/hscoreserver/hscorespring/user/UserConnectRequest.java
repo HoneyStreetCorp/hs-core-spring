@@ -1,5 +1,6 @@
 package com.hscoreserver.hscorespring.user;
 
+import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -7,6 +8,9 @@ import lombok.Getter;
 @Getter
 public class UserConnectRequest {
 
-  private String maleToken;
-  private String femaleToken;
+  @NotEmpty
+  private String maleToken; // 친구 id
+
+  @NotEmpty
+  private String femaleToken; // 내 id
 }

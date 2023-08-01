@@ -3,7 +3,6 @@ package com.hscoreserver.hscorespring.redirection;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.hscoreserver.hscorespring.common.HsConfig;
-import javax.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +14,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataJpaTest
 @Import(HsConfig.class)
 @ExtendWith(SpringExtension.class)
-@Transactional
 class RedirectionRepositoryTest {
 
   private static final String ORIGINAL_URL = "https://www.hscore.co.kr";

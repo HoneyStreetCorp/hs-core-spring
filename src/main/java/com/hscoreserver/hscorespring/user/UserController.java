@@ -1,5 +1,6 @@
 package com.hscoreserver.hscorespring.user;
 
+import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class UserController {
 
   @PostMapping("/connect")
   @ResponseStatus(HttpStatus.OK)
-  public UserResponse connectUser(UserConnectRequest connectRequest) {
+  public UserResponse connectUser(@Valid UserConnectRequest connectRequest) {
     User male = userService.connectUser(connectRequest);
     return new UserResponse(male);
   }

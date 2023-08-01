@@ -1,15 +1,15 @@
 package com.hscoreserver.hscorespring.error.exception;
 
-import com.hscoreserver.hscorespring.error.ErrorCode;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public class SystemException extends RuntimeException {
 
-  private final ErrorCode errorCode;
+  private final HttpStatus status;
 
-  public SystemException(ErrorCode errorCode) {
-    super(errorCode.getMessage());
-    this.errorCode = errorCode;
+  public SystemException(String message, HttpStatus status) {
+    super(message);
+    this.status = status;
   }
 }
