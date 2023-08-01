@@ -1,9 +1,11 @@
 package com.hscoreserver.hscorespring.redirection;
 
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import java.net.URI;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,15 +23,17 @@ public class RedirectionController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public RedirectionResponse createRedirection(@RequestBody RedirectionCreateRequest request) {
+  public RedirectionResponse createRedirection(
+      @RequestBody @Valid RedirectionCreateRequest request) {
     Redirection redirection = redirectionService.create(request);
     return new RedirectionResponse(redirection);
   }
 
   @GetMapping("/{token}")
-  @ResponseStatus(HttpStatus.OK)
-  public void redirect(HttpServletResponse response, @PathVariable String token) throws IOException {
-    Redirection redirection = redirectionService.redirect(token);
-    response.sendRedirect(redirection.getOriginalUrl());
+  public ResponseEntity<Void> redirect(@PathVariable String token) {
+    Redirection redirection = redirectionService.getRedirection(token);
+    return ResponseEntity.status(HttpStatus.TEMPORARY_REDIRECT)
+        .location(URI.create(redirection.getOriginalUrl()))
+        .build();
   }
 }

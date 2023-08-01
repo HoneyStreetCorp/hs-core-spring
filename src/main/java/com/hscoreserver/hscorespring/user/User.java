@@ -2,13 +2,13 @@ package com.hscoreserver.hscorespring.user;
 
 import com.hscoreserver.hscorespring.common.BaseTimeEntity;
 import com.hscoreserver.hscorespring.util.Base62Util;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
 import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,11 +25,12 @@ public class User extends BaseTimeEntity {
 
   @Id
   @GeneratedValue
+  @Setter(value = AccessLevel.PROTECTED)
   @Column(name = "user_id", nullable = false, columnDefinition = "BINARY(16)")
   private UUID id;
 
-  @Column(name = "name", nullable = false)
-  private String name;
+  @Column(name = "username", nullable = false)
+  private String username;
 
   @Column(name = "token", nullable = false, unique = true)
   private String token;
@@ -40,7 +41,7 @@ public class User extends BaseTimeEntity {
 
   public User(String name) {
     this.token = Base62Util.generateBase62();
-    this.name = name + "#" + token;
+    this.username = name + "#" + token;
   }
 
   protected void connect(User female) {
