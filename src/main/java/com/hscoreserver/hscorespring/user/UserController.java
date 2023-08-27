@@ -23,10 +23,10 @@ public class UserController {
     return new UserResponse(user);
   }
 
-//  @PostMapping("/connect")
-//  @ResponseStatus(HttpStatus.OK)
-//  public UserResponse connectUser(@Valid UserConnectRequest connectRequest) {
-//    User male = userService.connectUser(connectRequest);
-//    return new UserResponse(male);
-//  }
+  @PostMapping("/connect")
+  @ResponseStatus(HttpStatus.OK)
+  public UserResponse connectUser(@Valid UserConnectRequest connectRequest) {
+    User male = userService.connectUser(connectRequest);
+    return new UserResponse(male);
+  }
 }
