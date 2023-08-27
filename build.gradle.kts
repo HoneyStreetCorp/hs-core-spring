@@ -4,8 +4,8 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.15.RELEASE"
 }
 
-group = "com.hs-core-server"
-version = "0.0.1-SNAPSHOT"
+group = "hs-core-server"
+version = "0.0.1"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_11

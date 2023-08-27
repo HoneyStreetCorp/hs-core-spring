@@ -1,0 +1,7 @@
+FROM openjdk:11
+
+EXPOSE 8080
+
+ADD build/libs/hs-core-server-0.0.1.jar hs-core-server-0.0.1.jar
+
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=develop", "devthink-0.0.1.jar"]
