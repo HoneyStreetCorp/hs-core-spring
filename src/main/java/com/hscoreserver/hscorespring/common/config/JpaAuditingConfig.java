@@ -1,4 +1,4 @@
-package com.hscoreserver.hscorespring.common;
+package com.hscoreserver.hscorespring.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

@@ -54,6 +54,9 @@ dependencies {
 
 	// json
 	implementation("org.json:json:20230618")
+
+	// swagger
+	implementation("io.springfox:springfox-boot-starter:3.0.0")
 }
 
 tasks.withType<Test> {

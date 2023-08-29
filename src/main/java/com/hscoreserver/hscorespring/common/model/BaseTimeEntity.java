@@ -1,4 +1,4 @@
-package com.hscoreserver.hscorespring.common;
+package com.hscoreserver.hscorespring.common.model;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;
