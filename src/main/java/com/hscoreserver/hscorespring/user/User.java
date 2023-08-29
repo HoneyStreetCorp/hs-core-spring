@@ -1,6 +1,6 @@
 package com.hscoreserver.hscorespring.user;
 
-import com.hscoreserver.hscorespring.common.BaseTimeEntity;
+import com.hscoreserver.hscorespring.common.model.BaseTimeEntity;
 import com.hscoreserver.hscorespring.util.Base62Util;
 import java.util.UUID;
 import javax.persistence.Column;
