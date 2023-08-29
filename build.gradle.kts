@@ -2,18 +2,29 @@ plugins {
 	java
 	id("org.springframework.boot") version "2.7.8"
 	id("io.spring.dependency-management") version "1.0.15.RELEASE"
+	id("com.google.cloud.tools.jib") version "3.2.1"
 }
 
 group = "hs-core-server"
 version = "0.0.1"
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_11
+	sourceCompatibility = JavaVersion.VERSION_17
 }
 
 configurations {
 	compileOnly {
 		extendsFrom(configurations.annotationProcessor.get())
+	}
+}
+
+jib {
+	from {
+		image = "openjdk:17-jdk-alpine"
+	}
+	to {
+		image = "sihookang47/hs-core-spring"
+		tags = setOf("latest")
 	}
 }
 
