@@ -8,8 +8,4 @@ import org.springframework.stereotype.Service;
 public class QuestionSetService {
 
   private final QuestionSetRepository questionSetRepository;
-
-  public QuestionSet getQuestionSet(String questionSetName) {
-    return questionSetRepository.findByName(QuestionSetName.valueOf(questionSetName));
-  }
 }
