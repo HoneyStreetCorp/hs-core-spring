@@ -24,5 +24,5 @@ public class Choice {
 
   private String content;
 
-  private String questionId;
+  private Long questionId;
 }
