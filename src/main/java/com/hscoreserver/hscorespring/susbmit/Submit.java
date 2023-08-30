@@ -18,9 +18,9 @@ public class Submit {
   private String id;
 
 
-  private String questionId;
+  private Long questionId;
 
-  private String choiceId;
+  private Long choiceId;
 
   @Nullable
   private String answer;

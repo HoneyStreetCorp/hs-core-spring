@@ -40,5 +40,5 @@ public class Question {
     this.category = category;
   }
 
-  private String questionSetId;
+  private Long questionSetId;
 }
