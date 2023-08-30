@@ -15,7 +15,7 @@ public class QuestionController {
   private final QuestionService questionService;
 
   @GetMapping
-  public List<Question> list(@RequestParam String questionSetName) {
-    return questionService.getQuestions(questionSetName);
+  public List<Question> list(@RequestParam Long questionSetId) {
+    return questionService.getQuestions(questionSetId);
   }
 }

@@ -9,7 +9,11 @@ public class QuestionSetService {
 
   private final QuestionSetRepository questionSetRepository;
 
-  public QuestionSet getQuestionSet(String questionSetName) {
-    return questionSetRepository.findByName(QuestionSetName.valueOf(questionSetName));
+  public QuestionSet createQuestionSet(String name) {
+    QuestionSet questionSet = QuestionSet.builder()
+        .name(name)
+        .build();
+
+    return questionSetRepository.save(questionSet);
   }
 }

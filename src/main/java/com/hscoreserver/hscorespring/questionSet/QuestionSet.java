@@ -2,18 +2,18 @@ package com.hscoreserver.hscorespring.questionSet;
 
 import java.math.BigDecimal;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "question_sets")
 public class QuestionSet {
@@ -22,8 +22,13 @@ public class QuestionSet {
   @GeneratedValue
   private Long id;
 
-  @Enumerated(EnumType.STRING)
-  private QuestionSetName name;
+  private String name;
 
   private BigDecimal count;
+
+  @Builder
+  public QuestionSet(String name) {
+    this.name = name;
+    this.count = BigDecimal.ZERO;
+  }
 }
