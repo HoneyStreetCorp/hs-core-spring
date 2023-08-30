@@ -8,4 +8,12 @@ import org.springframework.stereotype.Service;
 public class QuestionSetService {
 
   private final QuestionSetRepository questionSetRepository;
+
+  public QuestionSet createQuestionSet(String name) {
+    QuestionSet questionSet = QuestionSet.builder()
+        .name(name)
+        .build();
+
+    return questionSetRepository.save(questionSet);
+  }
 }
