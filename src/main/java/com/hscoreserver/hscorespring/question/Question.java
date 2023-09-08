@@ -1,6 +1,5 @@
 package com.hscoreserver.hscorespring.question;
 
-import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,8 +19,8 @@ public class Question {
 
   @Id
   @GeneratedValue
-  @Column(name = "question_id", nullable = false, columnDefinition = "BINARY(16)")
-  private UUID id;
+  @Column(name = "question_id")
+  private Long id;
 
   @Column(name = "title", nullable = false)
   private String title;
@@ -34,11 +33,21 @@ public class Question {
   private Category category;
 
   @Builder
-  protected Question(String title, String body, Category category) {
+  private Question(String title, String body, Category category, Long questionSetId) {
     this.title = title;
     this.body = body;
     this.category = category;
+    this.questionSetId = questionSetId;
   }
 
   private Long questionSetId;
+
+  protected static Question createQuestion(QuestionCreateRequest request) {
+    return Question.builder()
+        .title(request.getTitle())
+        .body(request.getBody())
+        .category(request.getCategory())
+        .questionSetId(request.getQuestionSetId())
+        .build();
+  }
 }

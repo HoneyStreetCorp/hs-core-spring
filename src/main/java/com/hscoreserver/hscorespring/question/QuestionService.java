@@ -8,9 +8,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class QuestionService {
 
-  private final QuestionRepository questionRepository;
+  private final QuestionRepository repository;
 
   public List<Question> getQuestions(Long questionSetId) {
-    return questionRepository.findByQuestionSet(questionSetId);
+    return repository.findByQuestionSet(questionSetId);
+  }
+
+  public Question createQuestion(QuestionCreateRequest request) {
+    Question question = Question.createQuestion(request);
+    return repository.save(question);
   }
 }

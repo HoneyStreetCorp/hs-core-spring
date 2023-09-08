@@ -1,5 +1,7 @@
 package com.hscoreserver.hscorespring.questionSet;
 
+import com.hscoreserver.hscorespring.error.ErrorCode;
+import com.hscoreserver.hscorespring.error.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -7,13 +9,20 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class QuestionSetService {
 
-  private final QuestionSetRepository questionSetRepository;
+  private final QuestionSetRepository repository;
 
   public QuestionSet createQuestionSet(String name) {
     QuestionSet questionSet = QuestionSet.builder()
         .name(name)
         .build();
 
-    return questionSetRepository.save(questionSet);
+    return repository.save(questionSet);
+  }
+
+  public void deleteQuestionSet(Long id) {
+    QuestionSet questionSet = repository.findById(id)
+        .orElseThrow(() -> new NotFoundException(ErrorCode.QUESTINO_SET_NOT_FOUND, "id = " + id));
+
+    repository.delete(questionSet);
   }
 }
