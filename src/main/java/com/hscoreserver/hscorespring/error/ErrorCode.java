@@ -8,7 +8,7 @@ public enum ErrorCode {
 
   USER_NOT_FOUND(HttpStatus.NOT_FOUND, "U001","User not found"),
 
-  REDIRECTION_NOT_FOUND(HttpStatus.NOT_FOUND, "R001","Redirection not found");
+  QUESTINO_SET_NOT_FOUND(HttpStatus.NOT_FOUND, "QS001", "QuestionSet not found");
 
   private final HttpStatus status;
   private final String code;
