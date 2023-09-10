@@ -21,8 +21,13 @@ public class QuestionSetService {
 
   public void deleteQuestionSet(Long id) {
     QuestionSet questionSet = repository.findById(id)
-        .orElseThrow(() -> new NotFoundException(ErrorCode.QUESTINO_SET_NOT_FOUND, "id = " + id));
+        .orElseThrow(() -> new NotFoundException(ErrorCode.QUESTION_SET_NOT_FOUND, "id = " + id));
 
     repository.delete(questionSet);
+  }
+
+  public QuestionSet getQuestionSet(Long id) {
+    return repository.findById(id)
+        .orElseThrow(() -> new NotFoundException(ErrorCode.QUESTION_SET_NOT_FOUND, "id = " + id));
   }
 }

@@ -1,6 +1,7 @@
 package com.hscoreserver.hscorespring.questionSet;
 
 import java.math.BigDecimal;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,6 +21,7 @@ public class QuestionSet {
 
   @Id
   @GeneratedValue
+  @Column(name = "question_set_id")
   private Long id;
 
   private String name;

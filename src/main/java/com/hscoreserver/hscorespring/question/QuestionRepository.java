@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-  @Query("select q from Question q where q.questionSetId = :id")
+  @Query("select q from Question q where q.questionSet.id = :id")
   List<Question> findByQuestionSet(@Param("id") Long id);
 }
