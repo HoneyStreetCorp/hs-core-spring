@@ -13,7 +13,6 @@ public class QuestionCreateRequest {
   @NotEmpty
   private String title;
 
-  @NotEmpty
   private String body;
 
   @NotEmpty

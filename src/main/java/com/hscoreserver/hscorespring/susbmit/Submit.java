@@ -1,7 +1,9 @@
 package com.hscoreserver.hscorespring.susbmit;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -15,7 +17,9 @@ import org.springframework.lang.Nullable;
 public class Submit {
 
   @Id
-  private String id;
+  @GeneratedValue
+  @Column(name = "submit_id")
+  private Long id;
 
 
   private Long questionId;
@@ -23,5 +27,5 @@ public class Submit {
   private Long choiceId;
 
   @Nullable
-  private String answer;
+  private Long answerId;
 }

@@ -15,7 +15,10 @@ public class QuestionController {
   private final QuestionService questionService;
 
   @GetMapping("/{questionSetId}")
-  public List<Question> list(@PathVariable Long questionSetId) {
-    return questionService.getQuestions(questionSetId);
+  public List<QuestionResponse> list(@PathVariable Long questionSetId) {
+    List<Question> questions = questionService.getQuestions(questionSetId);
+    return questions.stream()
+        .map(QuestionResponse::new)
+        .toList();
   }
 }
