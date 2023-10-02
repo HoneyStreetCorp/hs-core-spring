@@ -1,4 +1,8 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://sihookang47:IOZ8mewJK2RXzDvn@honeystreet.fdauiu2.mongodb.net/hs-url-shortener
+      database: hs-url-shortener
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
