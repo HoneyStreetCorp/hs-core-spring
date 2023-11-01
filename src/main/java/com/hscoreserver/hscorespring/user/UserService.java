@@ -35,4 +35,12 @@ public class UserService {
     male.connect(female);
     return male;
   }
+
+  public User getUserById(Long userId) {
+    return userRepository.findById(userId)
+        .orElseThrow(() -> new NotFoundException(
+            ErrorCode.USER_NOT_FOUND,
+            String.format("userId: %d", userId))
+        );
+  }
 }

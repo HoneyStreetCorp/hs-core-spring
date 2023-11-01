@@ -10,7 +10,9 @@ public enum ErrorCode {
 
   QUESTION_SET_NOT_FOUND(HttpStatus.NOT_FOUND, "QS001", "QuestionSet not found"),
 
-  QUESTION_NOT_FOUND(HttpStatus.NOT_FOUND, "Q001", "Question not found");
+  QUESTION_NOT_FOUND(HttpStatus.NOT_FOUND, "Q001", "Question not found"),
+
+  CHOICE_NOT_FOUND(HttpStatus.NOT_FOUND, "C001", "Choice not found");
 
   private final HttpStatus status;
   private final String code;
