@@ -1,5 +1,7 @@
 package com.hscoreserver.hscorespring.choice;
 
+import com.hscoreserver.hscorespring.error.ErrorCode;
+import com.hscoreserver.hscorespring.error.exception.NotFoundException;
 import com.hscoreserver.hscorespring.question.Question;
 import com.hscoreserver.hscorespring.question.QuestionService;
 import java.util.List;
@@ -27,5 +29,10 @@ public class ChoiceService {
         .toList();
 
     return repository.saveAll(choices);
+  }
+
+  public Choice getChoice(Long choiceId) {
+    return repository.findById(choiceId)
+        .orElseThrow(() -> new NotFoundException(ErrorCode.CHOICE_NOT_FOUND, "Choice id : " + choiceId));
   }
 }
